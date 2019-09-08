@@ -1,3 +1,6 @@
 ## Practice
-该项目是用于练习算法题用（LeetCode）
-### Part-1
+This repository is used for algorithms practice.（Current in LeetCode）
+### Part-1: Top 100 Liked Questions
+problem-1: Two Sum，Related: **Hash**
+problem-2: Add Two Numbers, Related: **LinkedList Iteration**
+
