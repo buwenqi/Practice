@@ -50,7 +50,7 @@ class Solution {
         if(s==null || p==null){
             return false;
         }
-        initDpArray(s.length(),p.length())
+        initDpArray(s.length(),p.length());
         char[] Schars=s.toCharArray();
         char[] Pchars=p.toCharArray();
         int sindex=0;
@@ -71,7 +71,7 @@ class Solution {
 
     public boolean isMatch(int sindex,int pindex,char[] Schars,char[] pchars){
         boolean result=false;
-        if(dp[sindex][pindex]!=-1){
+        if(sindex!=Schars.length && pindex!=pchars.length && dp[sindex][pindex]!=-1){
             return dp[sindex][pindex]==1?true:false;
         }else if(sindex==Schars.length && pindex==pchars.length){
             result=true;
@@ -88,6 +88,7 @@ class Solution {
                     result=isMatch(sindex,pindex+2,Schars,pchars)||
                         isMatch(sindex+1,pindex+2,Schars,pchars)||
                         isMatch(sindex+1,pindex,Schars,pchars);
+                    dp[sindex][pindex]=result?1:0;
                 }else{
                     //when sindex==Schars.length, we should also skip the * 
                     //if pchars[pindex] is not equal to Schars[sindex], we can only skip the * matching.
@@ -96,12 +97,12 @@ class Solution {
             }else{
                 if(sindex!=Schars.length && (pchars[pindex]==Schars[sindex]|| pchars[pindex]=='.')){
                     result=isMatch(sindex+1,pindex+1,Schars,pchars);
+                    dp[sindex][pindex]=result?1:0;
                 }else{
                     result=false;
                 }
             }
         }
-        dp[sindex][pindex]=result;
         return result;
     }
 }
