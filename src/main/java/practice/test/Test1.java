@@ -27,6 +27,7 @@ public class Test1 {
         System.out.println(result2);
         System.out.println(line);
         System.out.println(line2);
+        List<Integer> hello=new ArrayList<>();
 
     }
 
