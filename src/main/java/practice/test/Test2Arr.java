@@ -18,6 +18,9 @@ public class Test2Arr {
         //对角线遍历
         leftdiagonalIterate(arr);
         rightDignonalIterate(arr);
+
+        //对角线蛇形遍历
+        snakeLeftDiagonalIterate(arr);
     }
 
     public static void normalRowIterate(int[][] arr){
@@ -202,6 +205,41 @@ public class Test2Arr {
             downCount++;
         }
         System.out.println(downResult.toString());
+    }
+
+
+    public static void snakeLeftDiagonalIterate(int[][] arr){
+        int maxRows=arr.length;
+        int maxCols=arr[0].length;
+
+        int iterateSize=maxRows+maxCols-1;
+        int count=0;
+        StringBuilder result=new StringBuilder();
+        while (count<iterateSize){
+            //上行的起始点(左和下边)
+            int upRow=(count<maxRows?count:maxRows-1);
+            int upCol=(count<maxRows?0:count-maxRows+1);
+            while (upRow>=0 && upCol<maxCols){
+                result.append(arr[upRow][upCol]+",");
+                upRow--;
+                upCol++;
+            }
+            count++;
+            if(count>=iterateSize){
+                break;
+            }
+            //下行的起始点（上和右边）
+            int downRow=(count<maxCols?0:count-maxCols+1);
+            int downCol=(count<maxCols?count:maxCols-1);
+            while (downRow<maxRows && downCol>=0){
+                result.append(arr[downRow][downCol]+",");
+                downRow++;
+                downCol--;
+            }
+            count++;
+        }
+        System.out.println(result.toString());
+
     }
 
 }

@@ -24,7 +24,7 @@ public class Solution {
 
     //solution2: 双指针，状态消解
     //短的那一个组成的其他解一定小于当前的组合的解，在寻找最大值的过程中可以不用考虑
-    public int maxArea(int[] height){
+    public int maxArea2(int[] height){
         int maxArea=0;
         int i=0;
         int j=height.length;
@@ -42,7 +42,7 @@ public class Solution {
 
     //dynamic programing
     //false method
-    public int maxArea(int[] height) {
+    public int maxArea3(int[] height) {
         int[][] dp=new int[height.length][height.length];
         for(int i=0;i<height.length;i++){
             dp[i][i]=0;

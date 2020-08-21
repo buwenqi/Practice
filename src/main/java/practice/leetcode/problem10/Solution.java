@@ -1,7 +1,8 @@
+package practice.leetcode.problem10;
 class Solution {
 
     //solution1, recursion
-    public boolean isMatch(String s, String p) {
+    public boolean isMatch1(String s, String p) {
         if(s==null || p==null){
             return false;
         }
@@ -9,10 +10,10 @@ class Solution {
         char[] Pchars=p.toCharArray();
         int sindex=0;
         int pindex=0;
-        return isMatch(sindex,pindex,Schars,Pchars);
+        return isMatch1(sindex,pindex,Schars,Pchars);
     }
 
-    public boolean isMatch(int sindex,int pindex,char[] Schars,char[] pchars){
+    public boolean isMatch1(int sindex,int pindex,char[] Schars,char[] pchars){
         if(sindex==Schars.length && pindex==pchars.length){
             return true;
         }else if(pindex==pchars.length){
@@ -25,17 +26,17 @@ class Solution {
                     //1. zero match with *, skip * and current char
                     //2. current pchar match to current schar once, skip * char directly
                     //3. Repeating pchar with k times. It is equal to keep the pindex unchanged while sindex adds one
-                    return isMatch(sindex,pindex+2,Schars,pchars)||
-                        isMatch(sindex+1,pindex+2,Schars,pchars)||
-                        isMatch(sindex+1,pindex,Schars,pchars);
+                    return isMatch1(sindex,pindex+2,Schars,pchars)||
+                        isMatch1(sindex+1,pindex+2,Schars,pchars)||
+                        isMatch1(sindex+1,pindex,Schars,pchars);
                 }else{
                     //when sindex==Schars.length, we should also skip the * 
                     //if pchars[pindex] is not equal to Schars[sindex], we can only skip the * matching.
-                    return isMatch(sindex,pindex+2,Schars,pchars);
+                    return isMatch1(sindex,pindex+2,Schars,pchars);
                 }
             }else{
                 if(sindex!=Schars.length && (pchars[pindex]==Schars[sindex]|| pchars[pindex]=='.')){
-                    return isMatch(sindex+1,pindex+1,Schars,pchars);
+                    return isMatch1(sindex+1,pindex+1,Schars,pchars);
                 }else{
                     return false;
                 }
@@ -46,7 +47,7 @@ class Solution {
     //solution2: recursion optimize with DP array
 
     private int[][] dp;
-    public boolean isMatch(String s, String p) {
+    public boolean isMatch2(String s, String p) {
         if(s==null || p==null){
             return false;
         }
@@ -55,7 +56,7 @@ class Solution {
         char[] Pchars=p.toCharArray();
         int sindex=0;
         int pindex=0;
-        return isMatch(sindex,pindex,Schars,Pchars);
+        return isMatch2(sindex,pindex,Schars,Pchars);
     }
 
     public void initDpArray(int Xlen,int Ylen){
@@ -69,7 +70,7 @@ class Solution {
         }
     }
 
-    public boolean isMatch(int sindex,int pindex,char[] Schars,char[] pchars){
+    public boolean isMatch2(int sindex,int pindex,char[] Schars,char[] pchars){
         boolean result=false;
         if(sindex!=Schars.length && pindex!=pchars.length && dp[sindex][pindex]!=-1){
             return dp[sindex][pindex]==1?true:false;
@@ -85,18 +86,18 @@ class Solution {
                     //1. zero match with *, skip * and current char
                     //2. current pchar match to current schar once, skip * char directly
                     //3. Repeating pchar with k times. It is equal to keep the pindex unchanged while sindex adds one
-                    result=isMatch(sindex,pindex+2,Schars,pchars)||
-                        isMatch(sindex+1,pindex+2,Schars,pchars)||
-                        isMatch(sindex+1,pindex,Schars,pchars);
+                    result=isMatch2(sindex,pindex+2,Schars,pchars)||
+                        isMatch2(sindex+1,pindex+2,Schars,pchars)||
+                        isMatch2(sindex+1,pindex,Schars,pchars);
                     dp[sindex][pindex]=result?1:0;
                 }else{
                     //when sindex==Schars.length, we should also skip the * 
                     //if pchars[pindex] is not equal to Schars[sindex], we can only skip the * matching.
-                    result=isMatch(sindex,pindex+2,Schars,pchars);
+                    result=isMatch2(sindex,pindex+2,Schars,pchars);
                 }
             }else{
                 if(sindex!=Schars.length && (pchars[pindex]==Schars[sindex]|| pchars[pindex]=='.')){
-                    result=isMatch(sindex+1,pindex+1,Schars,pchars);
+                    result=isMatch2(sindex+1,pindex+1,Schars,pchars);
                     dp[sindex][pindex]=result?1:0;
                 }else{
                     result=false;

@@ -1,3 +1,4 @@
+package practice.leetcode.problem15;
 import java.util.*;
 class Solution {
    boolean[] flags;
@@ -80,7 +81,7 @@ class Solution {
     }
 
     //Solution2， two pointer and remove the duplicate item
-    public List<List<Integer>> threeSum(int[] nums) {
+    public List<List<Integer>> threeSum2(int[] nums) {
         List<List<Integer>> result=new ArrayList<>();
         if(nums==null || nums.length<3){
             return result;
@@ -130,7 +131,7 @@ class Solution {
     }
 
     // solution3: remove duplicate items dependently -time limit exceeded
-    public List<List<Integer>> threeSum(int[] nums) {
+    public List<List<Integer>> threeSum3(int[] nums) {
         List<List<Integer>> result=new ArrayList<>();
         if(nums==null || nums.length<3){
             return result;
@@ -149,7 +150,7 @@ class Solution {
                 //双指针校验过程
                 int sum=nums[left]+nums[low]+nums[high];
                 if(sum==0){
-                    List<Integer> curResult=getOneResult(nums[left],nums[low],nums[high]);
+                    List<Integer> curResult=getOneResult3(nums[left],nums[low],nums[high]);
                     if(!result.contains(curResult)){
                         result.add(curResult);
                     }
@@ -168,7 +169,7 @@ class Solution {
         
     }
     
-    private List<Integer> getOneResult(int leftValue,int lowValue,int highValue){
+    private List<Integer> getOneResult3(int leftValue,int lowValue,int highValue){
         List<Integer> tmpList=new ArrayList<>();
         tmpList.add(leftValue);
         tmpList.add(lowValue);
