@@ -242,4 +242,28 @@ public class Test2Arr {
 
     }
 
+
+    /**
+     * 将二维数组旋转90度
+     */
+    public void rotate(int[][] matrix) {
+        //按圈旋转
+        int maxIndex=matrix.length-1;
+        //最多maxIndex/2圈
+        for(int level=0;level<=maxIndex/2;level++){
+            for(int j=level;j<maxIndex-level;j++){
+                //取出上边的（level,j），存储到历史数组中
+                int tmp=matrix[level][j];
+                //将左边上的值旋转到上边
+                matrix[level][j]=matrix[maxIndex-j][level];
+                //将下边的值转到左边
+                matrix[maxIndex-j][level]=matrix[maxIndex-level][maxIndex-j];
+                //将右边的值放入转到左边
+                matrix[maxIndex-level][maxIndex-j]=matrix[j][maxIndex-level];
+                //将上面的tmp放入右边
+                matrix[j][maxIndex-level]=tmp;
+            }
+        }
+    }
+
 }
