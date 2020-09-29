@@ -91,6 +91,9 @@ public class TestJavaBasis {
         //ArrayDeque不允许有null值
         //queue1.offer(null);
 
+        String testStr="xxx";
+        testStr.substring(1,3);
+
     }
 
     public static int getGcd(int num1,int num2){
