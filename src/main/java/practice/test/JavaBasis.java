@@ -293,6 +293,10 @@ public class JavaBasis {
 
         //操作符优先级测试
         System.out.println((4 << 1) + 1);
+        String curStr="abcdefg";
+        int index=2;
+        String result=curStr.substring(0,index)+curStr.substring(index+1,curStr.length());
+        System.out.println(result);
 
 
     }
