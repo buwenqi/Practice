@@ -295,8 +295,17 @@ public class JavaBasis {
         System.out.println((4 << 1) + 1);
         String curStr="abcdefg";
         int index=2;
+        Character.isDigit(1);
         String result=curStr.substring(0,index)+curStr.substring(index+1,curStr.length());
         System.out.println(result);
+
+        double sub=6.0-24;
+        float hello=6.0f;
+        System.out.println(sub);
+        StringBuilder builder1=new StringBuilder();
+        builder1.append(1);
+
+        char s='a';
 
 
     }
