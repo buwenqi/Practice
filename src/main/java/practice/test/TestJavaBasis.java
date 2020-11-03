@@ -93,7 +93,12 @@ public class TestJavaBasis {
 
         String testStr="xxx";
         testStr.substring(1,3);
+        StringBuilder builder=new StringBuilder("test");
+        builder.setCharAt(1,'x');
 
+        List<String> list2=new ArrayList<String>();
+        list2.set(1,"");
+        list2.remove(0);
     }
 
     public static int getGcd(int num1,int num2){
