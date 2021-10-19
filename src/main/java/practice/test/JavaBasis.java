@@ -2,7 +2,12 @@ package practice.test;
 
 import javafx.util.Pair;
 
+import java.net.InetSocketAddress;
+import java.net.Socket;
+import java.net.SocketAddress;
 import java.util.*;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingDeque;
 import java.util.stream.Collectors;
 
 /**
@@ -35,7 +40,7 @@ public class JavaBasis {
 
         //一维数组求和+最大值
         //array求和
-        int[] arr = {1, 2, 3};
+        int[] arr = {3, 2, 1};
         int sum = Arrays.stream(arr).sum();
         System.out.println(sum);
         //array求最大值
@@ -44,6 +49,7 @@ public class JavaBasis {
 
         //数组排序
         Arrays.sort(arr);
+        System.out.println("sort arr:"+ Arrays.toString(arr));
         Integer[] boxedArr = {1, 2, 3};
         Arrays.sort(boxedArr, (obj1, obj2) -> {
             return obj2 - obj1;
@@ -305,9 +311,26 @@ public class JavaBasis {
         StringBuilder builder1=new StringBuilder();
         builder1.append(1);
 
-        char s='a';
+        List<Integer> testList=new ArrayList<>(10);
+        testList.add(0,2);
+        testList.add(1,3);
+        testList.set(1,4);
+        System.out.println(Arrays.toString(testList.toArray()));
+        System.out.println(testList.get(0));
+        boolean test=Long.valueOf("9245587303")>12;
+
+        System.out.println(Integer.valueOf('3'));
+        Collections.sort(testList,(item1,item2)->item1-item2);
+
+        StringBuilder builder2=new StringBuilder();
+        builder2.substring(1,2);
+        builder2.reverse().toString();
+
+        BlockingQueue<String> bqueue=new LinkedBlockingDeque<>();
+        bqueue.offer("test");
 
 
+        System.out.println();
     }
 
 }

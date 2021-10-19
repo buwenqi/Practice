@@ -1,5 +1,4 @@
 package practice.test;
-
 import javafx.collections.transformation.SortedList;
 import javafx.util.Pair;
 
@@ -85,6 +84,11 @@ public class TestJavaBasis {
         int val=2147483647;
         long longval=Long.valueOf(val);
         System.out.println(longval+longval);
+        Map<String,Integer> map1 = new HashMap<>();
+        for(Map.Entry<String,Integer> entry:map1.entrySet()){
+            entry.setValue(1);
+            entry.getValue();
+        }
 
 
         Queue<String> queue1=new LinkedBlockingDeque<>();
@@ -96,9 +100,29 @@ public class TestJavaBasis {
         StringBuilder builder=new StringBuilder("test");
         builder.setCharAt(1,'x');
 
-        List<String> list2=new ArrayList<String>();
-        list2.set(1,"");
-        list2.remove(0);
+//        List<String> list2=new ArrayList<String>();
+//        list2.set(1,"");
+//        list2.remove(0);
+        char[] testArr={'a','b','c'};
+        new String(testArr);
+        String.valueOf(testArr);
+        BitSet bitSet=new BitSet();
+        PriorityQueue<String> heap=new PriorityQueue<>();
+
+        List<Integer> result=new ArrayList<>();
+        result.add(3);
+        result.add(3);
+        result.add(3);
+        result.add(4);
+        result.remove(result.size()-1);
+        System.out.println(Arrays.toString(result.toArray()));
+
+        Integer[] arr={1,2,3,4,5,6};
+        Arrays.sort(arr,(item1,item2)->item1-item2);
+        String[] strArr=new String[2];
+
+        int testInt=912834723;
+        System.out.println(testInt*10+2);
     }
 
     public static int getGcd(int num1,int num2){
