@@ -72,6 +72,7 @@ public class JavaBasis {
         for (int i = 0; i < arr3.length; i++) {
             sortedSet.add(arr3[i]);
         }
+        sortedSet.contains(1);
         System.out.println(Arrays.toString(sortedSet.toArray()));
 
         /***
@@ -103,6 +104,7 @@ public class JavaBasis {
 
         //list删除remove
         List<String> stringList = new ArrayList<>(2);
+        stringList.remove(1);
         stringList.add("haha");
         stringList.add("ff");
         //using iterator
