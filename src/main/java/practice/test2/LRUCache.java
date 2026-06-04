@@ -19,7 +19,6 @@ public class LRUCache {
         public ListNode next;
 
         public ListNode() {
-
         }
 
         public ListNode(String key, String value) {

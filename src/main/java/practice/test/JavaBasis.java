@@ -1,7 +1,5 @@
 package practice.test;
 
-import javafx.util.Pair;
-
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.SocketAddress;
@@ -289,11 +287,6 @@ public class JavaBasis {
         System.out.println("Other ------------------");
         //null不能和基本类型比较
         System.out.println(null == (Character) 'x');
-
-        //Pair类型返回多个值
-        Pair<Integer, String> pair = new Pair<>(1, "12");
-        System.out.println(pair.getKey() + ":" + pair.getValue());
-
         int testOperator = 4;
         if ((testOperator & 1) == 1) {
             System.out.println("test");

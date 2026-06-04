@@ -1,6 +1,4 @@
 package practice.test;
-import javafx.collections.transformation.SortedList;
-import javafx.util.Pair;
 
 import java.util.*;
 import java.util.concurrent.LinkedBlockingDeque;
